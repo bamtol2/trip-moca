@@ -6,14 +6,22 @@
       <div class="sidebar">
         <div class="schedule-list">
           <!-- 전체 일정 버튼 -->
-          <button class="schedule-btn" :class="{ active: selectedDay === 'all' }" @click="selectDay('all')">
+          <button
+            class="schedule-btn"
+            :class="{ active: selectedDay === 'all' }"
+            @click="selectDay('all')"
+          >
             <i class="fa-regular fa-calendar"></i><br />
             전체일정
           </button>
 
           <!-- 일자별 버튼 -->
           <div v-for="day in totalDays" :key="day" class="day-item">
-            <button class="schedule-btn" :class="{ active: selectedDay === day }" @click="selectDay(day)">
+            <button
+              class="schedule-btn"
+              :class="{ active: selectedDay === day }"
+              @click="selectDay(day)"
+            >
               <div class="day-title">DAY {{ day }}</div>
               <div class="day-date">{{ day }}일차</div>
             </button>
@@ -31,14 +39,22 @@
       <div class="content-area">
         <!-- 지도 영역 -->
         <div class="map-container">
-          <tmap-multipath :selected-places-by-day="getSelectedPlaces" :latitude="mapCoordinates.latitude"
-            :longitude="mapCoordinates.longitude" :selected-day="selectedDay === 'all' ? null : selectedDay"
-            :show-all-days="selectedDay === 'all'" />
+          <tmap-multipath
+            :selected-places-by-day="getSelectedPlaces"
+            :latitude="mapCoordinates.latitude"
+            :longitude="mapCoordinates.longitude"
+            :selected-day="selectedDay === 'all' ? null : selectedDay"
+            :show-all-days="selectedDay === 'all'"
+          />
         </div>
 
         <!-- 일정 패널 -->
-        <div ref="middleSection" class="schedule-panel" :class="{ expanded: isExpanded }"
-          :style="{ width: `${currentWidth}px` }">
+        <div
+          ref="middleSection"
+          class="schedule-panel"
+          :class="{ expanded: isExpanded }"
+          :style="{ width: `${currentWidth}px` }"
+        >
           <div class="panel-content">
             <div class="schedule-detail">
               <!-- 여행 제목과 기간 -->
@@ -50,26 +66,49 @@
               <!-- 전체 일정 뷰 -->
               <div v-if="selectedDay === 'all'" class="all-schedules">
                 <div class="days-grid" :style="gridStyle">
-                  <div v-for="dayPlan in planData.dayPlans" :key="dayPlan.day" class="day-container" @dragover.prevent
-                    @drop="handleDrop($event, dayPlan.day)">
+                  <div
+                    v-for="dayPlan in planData.dayPlans"
+                    :key="dayPlan.day"
+                    class="day-container"
+                    @dragover.prevent
+                    @drop="handleDrop($event, dayPlan.day)"
+                  >
                     <h2>
                       <span class="day">{{ dayPlan.day }}일차</span>
-                      <span class="date">{{ getDayDate(dayPlan.day) }}</span>
+                      <span class="date">{{
+                        formatDate(new Date(dayPlan.date))
+                      }}</span>
                     </h2>
                     <div class="schedule-items">
-                      <div v-for="(spot, index) in dayPlan.details" :key="spot.attractionId" class="schedule-item"
-                        draggable="true" @dragstart="dragStart($event, spot, index, dayPlan.day)" @dragover.prevent
-                        @drop="handleDrop($event, dayPlan.day, index)">
+                      <div
+                        v-for="(spot, index) in dayPlan.details"
+                        :key="spot.attractionId"
+                        class="schedule-item"
+                        draggable="true"
+                        @dragstart="dragStart($event, spot, index, dayPlan.day)"
+                        @dragover.prevent
+                        @drop="handleDrop($event, dayPlan.day, index)"
+                      >
                         <div class="spot-number">{{ index + 1 }}</div>
                         <div class="image-container">
                           <div class="place-image">
-                            <img :src="getImageUrl(spot.image)" :alt="spot.attractionTitle" />
+                            <img
+                              :src="getImageUrl(spot.image)"
+                              :alt="spot.attractionTitle"
+                            />
                           </div>
                         </div>
                         <div class="place-info">
                           <div class="flex gap-2 mb-2">
-                            <span v-if="spot.contentTypeName" class="px-2 py-1 rounded-lg text-xs text-white tag"
-                              :style="{ backgroundColor: getContentTypeColor(spot.contentTypeId) }">
+                            <span
+                              v-if="spot.contentTypeName"
+                              class="px-2 py-1 rounded-lg text-xs text-white tag"
+                              :style="{
+                                backgroundColor: getContentTypeColor(
+                                  spot.contentTypeId
+                                ),
+                              }"
+                            >
                               {{ spot.contentTypeName }}
                             </span>
                           </div>
@@ -78,7 +117,10 @@
                           <p class="attraction-addr">{{ spot.addr1 }}</p>
                         </div>
                         <div>
-                          <button @click="removePlace(dayPlan.day, index)" class="delete-button">
+                          <button
+                            @click="removePlace(dayPlan.day, index)"
+                            class="delete-button"
+                          >
                             <i class="fas fa-trash"></i>
                           </button>
                         </div>
@@ -89,22 +131,55 @@
               </div>
 
               <!-- 개별 일정 뷰 -->
+              <!-- 개별 일정 뷰 -->
               <div v-else class="day-schedule">
-                <h2>
+                <h2
+                  v-if="
+                    planData.dayPlans.find((day) => day.day === selectedDay)
+                  "
+                  class="day-container"
+                >
                   <span class="day">{{ selectedDay }}일차</span>
-                  <span class="date">{{ getDayDate(selectedDay) }}</span>
+                  <span class="date">{{
+                    formatDate(
+                      new Date(
+                        planData.dayPlans.find(
+                          (day) => day.day === selectedDay
+                        ).date
+                      )
+                    )
+                  }}</span>
                 </h2>
                 <div class="schedule-items">
-                  <div v-for="(spot, index) in getCurrentDaySpots()" :key="spot.attractionId" class="schedule-item"
-                    draggable="true" @dragstart="dragStart($event, spot, index, selectedDay)">
+                  <div
+                    v-for="(spot, index) in getCurrentDaySpots()"
+                    :key="spot.attractionId"
+                    class="schedule-item"
+                    draggable="true"
+                    @dragstart="dragStart($event, spot, index, selectedDay)"
+                    @dragover.prevent
+                    @drop="handleDrop($event, selectedDay, index)"
+                  >
                     <div class="spot-number">{{ index + 1 }}</div>
-                    <div class="place-image">
-                      <img :src="getImageUrl(spot.image)" :alt="spot.attractionTitle" />
+                    <div class="image-container">
+                      <div class="place-image">
+                        <img
+                          :src="getImageUrl(spot.image)"
+                          :alt="spot.attractionTitle"
+                        />
+                      </div>
                     </div>
                     <div class="place-info">
                       <div class="flex gap-2 mb-2">
-                        <span v-if="spot.contentTypeName" class="px-2 py-1 rounded-lg text-xs text-white tag"
-                          :style="{ backgroundColor: getContentTypeColor(spot.contentTypeId) }">
+                        <span
+                          v-if="spot.contentTypeName"
+                          class="px-2 py-1 rounded-lg text-xs text-white tag"
+                          :style="{
+                            backgroundColor: getContentTypeColor(
+                              spot.contentTypeId
+                            ),
+                          }"
+                        >
                           {{ spot.contentTypeName }}
                         </span>
                       </div>
@@ -112,7 +187,10 @@
                       <p class="attraction-addr">{{ spot.addr1 }}</p>
                     </div>
                     <div>
-                      <button @click="removePlace(selectedDay, index)" class="delete-button">
+                      <button
+                        @click="removePlace(selectedDay, index)"
+                        class="delete-button"
+                      >
                         <i class="fas fa-trash"></i>
                       </button>
                     </div>
@@ -123,7 +201,12 @@
           </div>
 
           <!-- 패널 크기 조절 핸들 -->
-          <div ref="dragHandle" class="drag-handle" @mousedown="startDragExpand" @touchstart="startDragExpand">
+          <div
+            ref="dragHandle"
+            class="drag-handle"
+            @mousedown="startDragExpand"
+            @touchstart="startDragExpand"
+          >
             <i class="fa-solid fa-grip-lines-vertical"></i>
           </div>
         </div>
@@ -131,9 +214,12 @@
     </div>
 
     <!-- 저장 모달 -->
-    <SavePlanModal v-model="showSaveModal"
+    <SavePlanModal
+      v-model="showSaveModal"
       :default-title="`${aiRecommendStore.selectedDestination?.areaName} ${aiRecommendStore.selectedDestination?.numberOfDays}일 여행`"
-      @close="showSaveModal = false" @save="handleSavePlan" />
+      @close="showSaveModal = false"
+      @save="handleSavePlan"
+    />
   </div>
 </template>
 
@@ -145,7 +231,7 @@ import { useAuthStore } from "@/store/auth";
 import { showLoginModalFlag } from "@/eventBus";
 import navBar from "@/components/navBar.vue";
 import TmapMultipath from "@/components/Tmap/TmapMultipath.vue";
-import SavePlanModal from '@/components/savePlanModal.vue';
+import SavePlanModal from "@/components/savePlanModal.vue";
 import { useAiRecommendPlanStore } from "@/store/aiRecommendPlanStore";
 import api from "@/plugins/axios";
 
@@ -232,28 +318,27 @@ const initializeData = async () => {
   try {
     isLoading.value = true;
     if (!aiRecommendStore.getPlanData?.dayPlans?.length) {
-      await aiRecommendStore.generateAiPlan().catch(error => {
+      await aiRecommendStore.generateAiPlan().catch((error) => {
         console.error("Failed to generate plan:", error);
         throw error;
       });
     }
 
     // 데이터 로드 후 상태 확인을 위한 로그
-    console.log('Initial plan data:', aiRecommendStore.getPlanData);
-    console.log('Selected places:', getSelectedPlaces.value);
+    console.log("Initial plan data:", aiRecommendStore.getPlanData);
+    console.log("Selected places:", getSelectedPlaces.value);
 
     // 데이터 로드 후 약간의 지연을 주어 컴포넌트들이 제대로 마운트되도록 함
-    await new Promise(resolve => setTimeout(resolve, 100));
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     // 전체 일정 보기로 초기화
-    selectedDay.value = 'all';
+    selectedDay.value = "all";
 
     // TmapMultipath 컴포넌트가 새로운 데이터로 업데이트되도록 강제로 트리거
     if (planData.value?.dayPlans?.length > 0) {
       const temp = JSON.parse(JSON.stringify(planData.value));
       aiRecommendStore.updatePlan(temp);
     }
-
   } catch (error) {
     console.error("Data initialization error:", error);
     alert("여행 계획을 불러오는데 실패했습니다. 다시 시도해주세요.");
@@ -264,10 +349,17 @@ const initializeData = async () => {
 };
 // --- 유틸리티 함수들 ---
 const getImageUrl = (imageUrl) => {
-  if (!imageUrl)
+  try {
+    if (!imageUrl) {
+      return "https://enjoy-trip-static-files.s3.ap-northeast-2.amazonaws.com/no-image.png";
+    }
+    return imageUrl;
+  } catch (error) {
+    console.error('Image URL processing error:', error);
     return "https://enjoy-trip-static-files.s3.ap-northeast-2.amazonaws.com/no-image.png";
-  return imageUrl;
+  }
 };
+
 
 const getDayDate = (day) => {
   return `${day}일차`;
@@ -389,26 +481,34 @@ const selectDay = (day) => {
 
 const removePlace = (day, index) => {
   const newPlan = JSON.parse(JSON.stringify(planData.value));
-  const dayPlanIndex = day - 1;
-  if (newPlan.dayPlans[dayPlanIndex]) {
-    newPlan.dayPlans[dayPlanIndex].details.splice(index, 1);
+  const dayPlan = newPlan.dayPlans.find(plan => plan.day === day);
+  if (dayPlan && Array.isArray(dayPlan.details)) {
+    dayPlan.details.splice(index, 1);
     aiRecommendStore.updatePlan(newPlan);
   }
 };
 
-// 기존 script setup 내부에 함수 추가
 const getContentTypeColor = (contentType) => {
   const colorMap = {
-    12: '#ecb27b',
-    14: '#6E6156',
-    15: '#433629',
-    25: '#332417',
-    28: '#988D82',
-    32: '#C3A386',
-    38: '#ecb27b',
-    39: '#6E6156'
+    12: "#ecb27b",
+    14: "#6E6156",
+    15: "#433629",
+    25: "#332417",
+    28: "#988D82",
+    32: "#C3A386",
+    38: "#ecb27b",
+    39: "#6E6156",
   };
-  return colorMap[contentType] || '#ecb27b';  // 기본값으로 #ecb27b 반환
+  return colorMap[contentType] || "#ecb27b"; // 기본값으로 #ecb27b 반환
+};
+
+const formatDate = (date) => {
+  if (!date || !(date instanceof Date) || isNaN(date)) return "";
+  const days = ["일", "월", "화", "수", "목", "금", "토"];
+  return `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(
+    2,
+    "0"
+  )}.${String(date.getDate()).padStart(2, "0")}(${days[date.getDay()]})`;
 };
 
 const saveModifiedPlan = () => {
@@ -437,7 +537,9 @@ const handleSavePlan = async ({ title, image }) => {
     // 더미 날짜 설정
     const today = new Date();
     const endDate = new Date(today);
-    endDate.setDate(today.getDate() + aiRecommendStore.selectedDestination.numberOfDays - 1);
+    endDate.setDate(
+      today.getDate() + aiRecommendStore.selectedDestination.numberOfDays - 1
+    );
     planStore.setDates(today.toISOString(), endDate.toISOString());
 
     // FormData 생성 및 전송
@@ -447,7 +549,7 @@ const handleSavePlan = async ({ title, image }) => {
       areaCode: planStore.selectedDestination.areaCode,
       startDate: planStore.dates.startDate,
       endDate: planStore.dates.endDate,
-      dayPlans: aiRecommendStore.recommendPlan.dayPlans.map(dayPlan => ({
+      dayPlans: aiRecommendStore.recommendPlan.dayPlans.map((dayPlan) => ({
         day: dayPlan.day,
         details: dayPlan.details.map((detail, index) => ({
           attractionId: detail.attractionId,
@@ -876,14 +978,14 @@ onBeforeUnmount(() => {
 }
 
 .tag {
-  font-family: 'Pretendard-SemiBold';
+  font-family: "Pretendard-SemiBold";
   font-size: 12px;
 }
 
 .attraction-addr {
-  font-family: 'Pretendard-Regular';
+  font-family: "Pretendard-Regular";
   font-size: 14px;
-  color: #B4B4B4;
+  color: #b4b4b4;
 }
 
 .hidden-input {
@@ -922,5 +1024,42 @@ onBeforeUnmount(() => {
 
 .cancel-button:hover {
   background: #e5e7eb;
+}
+
+.day-container h2,
+.day-schedule h2 {
+  margin-bottom: 1.5rem;
+}
+
+.day-container .day,
+.day-schedule .day {
+  font-family: "EliceDigitalBaeum_Bold";
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.day-container .date,
+.day-schedule .date {
+  font-family: "EliceDigitalBaeum_Regular";
+  font-size: 12px;
+}
+
+/* 일정 아이템 스타일 통일 */
+.schedule-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 7px;
+  margin-bottom: 1rem;
+  background: white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  cursor: grab;
+  width: 400px;
+  transition: transform 0.2s ease;
+}
+
+.schedule-item:hover {
+  transform: translateY(-2px);
 }
 </style>
