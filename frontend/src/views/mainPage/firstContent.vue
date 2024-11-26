@@ -268,7 +268,7 @@ $images: url("https://enjoy-trip-static-files.s3.ap-northeast-2.amazonaws.com/su
   @for $i from 2 through 7 {
     &.flip#{$i} {
       @if $i == 7 {
-        width: 60px;
+        width: 46px;
         border-width: 1px 0 1px 1px;
       } @else {
         right: calc(100% - 2px);
