@@ -1,5 +1,12 @@
 # 🍫 TRIP MOCA (여행 계획 서비스)
 ![thumnail](https://enjoy-trip-static-files.s3.ap-northeast-2.amazonaws.com/tripmoca_thumnail.png)
+
+### 🔗 URL
+[https://trip-moca.netlify.app/](https://trip-moca.netlify.app/)
+
+## 🎥 소개 영상
+https://youtu.be/FSi6VjUQT_E
+
 ## 📝 프로젝트 소개
 > *"AI랑 여행 계획 뚝딱! 여행하고 카드 받고 TRIP MOCA(모으다 카드를!)✨"*
 
@@ -58,10 +65,12 @@
 |<img src="https://avatars.githubusercontent.com/u/165285610?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/127578678?v=4" width="150" height="150"/>|
 |:-:|:-:|
 |hyewon<br/>[@hyeOOO](https://github.com/hyeOOO)|서성우<br/>[@bamtol2](https://github.com/bamtol2)|
+|풀스택 개발<br/>|프론트 개발<br/>|
+|백엔드 전체 개발, UI/UX 디자인, 인기 여행 페이지, 회원가입/로그인 페이지, 마이페이지, 카드도감 페이지, 배포<br/>|메인 페이지, 여행 계획 페이지, AI 모카 페이지, 여행 계획 편집 페이지<br/>|
 
 
 ## ⚙️ 기술 스택
-[![stackticon](https://firebasestorage.googleapis.com/v0/b/stackticon-81399.appspot.com/o/images%2F1731252800943?alt=media&token=2d8aa63e-74a0-491e-84a9-2fa314debd65)](https://github.com/msdio/stackticon)
+[![stackticon](https://firebasestorage.googleapis.com/v0/b/stackticon-81399.appspot.com/o/images%2F1741835600997?alt=media&token=045c2016-6d64-4c1d-a7ed-04fd3c6fd605)](https://github.com/msdio/stackticon)
 ### Backend
 - **Spring Boot**
   - Spring Security를 활용한 인증/인가 구현
@@ -70,6 +79,8 @@
   - 사용자 정보, 여행 계획, 장소 정보 등 영구 데이터 저장
 - **Redis**
   - refresh Token 관리
+- **MongoDB**
+  - 인기 검색어 구현
 
 ### Frontend
 - **Vue.js**
@@ -215,7 +226,7 @@ springdoc:
 ```
 
 ## 📱 API 문서
-API 문서는 Swagger UI를 통해 확인할 수 있습니다: `http://localhost:8081/swagger/enjoy-trip.html`
+API 문서는 Swagger UI를 통해 확인할 수 있습니다: https://trip-moca.kro.kr:8081/swagger/swagger-ui/index.html
 
 ## 📌 커밋 컨벤션
 
