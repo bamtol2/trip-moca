@@ -1,35 +1,69 @@
 # 🍫 TRIP MOCA (여행 계획 서비스)
-![thumnail](https://enjoy-trip-static-files.s3.ap-northeast-2.amazonaws.com/tripmoca_thumnail.png)
+![첫페이지__1_](https://enjoy-trip-static-files.s3.ap-northeast-2.amazonaws.com/tripmoca_thumnail.png)
 
-### 🔗 URL
-[https://trip-moca.netlify.app/](https://trip-moca.netlify.app/)
+<br />
+
+## 📌 목차
+
+1. [프로젝트 소개](#-프로젝트-소개)
+2. [팀 소개](#-팀-소개)
+3. [주요 기능](#-주요-기능)
+4. [소개 영상](#-소개-영상)
+5. [주요 기술](#-주요-기술)
+6. [기술 스택](#-기술-)
+7. [기술 아키텍처](#-기술-아키텍처)
+8. [프로젝트 구조](#-프로젝트-구조)
+9. [산출물](#-산출물)
+   <br />
+
+## 🚀 프로젝트 소개
+
+***SSAFY 12기 1학기 관통 프로젝트***
+
+> ⌛ 프로젝트 기간 : 2024.10.27 ~ 2024.11.27 (4주)
+
+> 📆 상세 기간 : 개발 4주
+
+> 🔗 [노션 링크](https://messy-duckling-7d6.notion.site/A-Penetration-Project-1221453abf47801f86d4fe47332d69bd?source=copy_link)
+
+> 📲 [배포 URL](https://trip-moca.netlify.app/)
+
+🧳 "AI랑 여행 계획 뚝딱! 여행하고 카드 받고, TRIP MOCA(모으다 카드를!)✨"
+✨ 더 이상 고민하지 마세요!<br />
+여행 계획부터 일정 조정, 특별한 추억까지!<br />
+AI가 알아서 여행 일정을 짜주고, 귀여운 지역 카드도 모을 수 있어요.<br />
+여행의 시작과 끝, 트립모카 하나면 충분해요!<br />
+
+🌍 이런 분들을 위한 AI 여행 플랫폼이에요<br />
+막막한 여행 일정 때문에 떠나기를 망설이고 있는 분<br />
+이왕 떠나는 여행, 효율적인 동선으로 알차게 보내고 싶은 분<br />
+여행 중 추억도 남기고 특별한 보상도 받고 싶은 분<br />
+귀찮은 일정 계획은 AI에게 맡기고 싶은 분<br />
+
+🎒 트립모카만의 특별한 기능<br />
+여행지와 기간만 입력하면 AI가 짜주는 맞춤 일정 추천<br />
+지역마다 GET! 할 수 있는 귀엽고 개성 넘치는 캐릭터 카드<br />
+내 일정에 맞는 동선을 자동으로 계산해주는 스마트 플래너<br />
+여행의 추억을 모아보는 카드 컬렉션 시스템<br />
+
+🚀 이렇게 사용해보세요!<br />
+1️⃣ 여행지와 여행 기간을 입력해보세요<br />
+2️⃣ AI가 최적의 일정을 자동으로 생성해드려요<br />
+3️⃣ 일정이 마음에 안 들면 언제든지 수정 가능!<br />
+4️⃣ 여행지에 도착하면 지역 캐릭터 카드를 모아보세요<br />
+
+## 👥 팀 소개
+## Team
+|<img src="https://avatars.githubusercontent.com/u/165285610?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/127578678?v=4" width="150" height="150"/>|
+|:-:|:-:|
+|hyewon<br/>[@hyeOOO](https://github.com/hyeOOO)|서성우<br/>[@bamtol2](https://github.com/bamtol2)|
+|풀스택 개발<br/>|프론트 개발<br/>|
+|백엔드 전체 개발, UI/UX 디자인, 인기 여행 페이지, 회원가입/로그인 페이지, 마이페이지, 카드도감 페이지, 배포<br/>|메인 페이지, 여행 계획 페이지, AI 모카 페이지, 여행 계획 편집 페이지<br/>|
 
 ## 🎥 소개 영상
 https://youtu.be/FSi6VjUQT_E
 
-## 📝 프로젝트 소개
-> *"AI랑 여행 계획 뚝딱! 여행하고 카드 받고 TRIP MOCA(모으다 카드를!)✨"*
-
-인생 여행은 가고 싶은데... 계획 세우기는 막막하시다구요? 🤔  
-이제 트립모카와 함께라면 걱정 끝! 
-
-### ✨ 이런 분들을 위해 준비했어요!
-- 여행 계획 세우다가 멘붕 오신 분들
-- 효율적인 동선으로 여행하고 싶으신 분들
-- 여행하면서 특별한 추억도 모으고 싶으신 분들
-
-### 🎁 트립모카에서는
-- AI가 척척 짜주는 맞춤 일정
-- 여행지마다 GET! 할 수 있는 귀여운 지역 캐릭터 카드
-- 헤매지 않게 알려주는 동선까지!
-
-### 💫 이제 여행 계획, 어렵지 않아요
-1️⃣ 여행지랑 기간만 알려주세요  
-2️⃣ AI가 일정을 뚝딱 만들어드려요  
-3️⃣ 마음에 안 들면 수정도 가능!  
-4️⃣ 여행지 도착하면 귀여운 캐릭터 카드 GET!  
-
-## 🎯 핵심 기능
+## ⌨️ 주요 기능
 
 ### 1. 간편한 AI 여행 계획 생성
 - **간단한 입력으로 일정 생성**
@@ -58,16 +92,6 @@ https://youtu.be/FSi6VjUQT_E
   - 출발지-도착지 간 소요 시간 계산
   - 이동 거리 정보 제공
   - 경로 지도 표시
- 
-
-## 👥 팀 소개
-## Team
-|<img src="https://avatars.githubusercontent.com/u/165285610?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/127578678?v=4" width="150" height="150"/>|
-|:-:|:-:|
-|hyewon<br/>[@hyeOOO](https://github.com/hyeOOO)|서성우<br/>[@bamtol2](https://github.com/bamtol2)|
-|풀스택 개발<br/>|프론트 개발<br/>|
-|백엔드 전체 개발, UI/UX 디자인, 인기 여행 페이지, 회원가입/로그인 페이지, 마이페이지, 카드도감 페이지, 배포<br/>|메인 페이지, 여행 계획 페이지, AI 모카 페이지, 여행 계획 편집 페이지<br/>|
-
 
 ## ⚙️ 기술 스택
 [![stackticon](https://firebasestorage.googleapis.com/v0/b/stackticon-81399.appspot.com/o/images%2F1741835600997?alt=media&token=045c2016-6d64-4c1d-a7ed-04fd3c6fd605)](https://github.com/msdio/stackticon)
