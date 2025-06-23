@@ -75,7 +75,7 @@ AI가 알아서 여행 일정을 짜주고, 귀여운 지역 카드도 모을 �
 ## ⌨️ 주요 기능
 
 <details>
-<summary><strong>1.간편한 AI 여행 계획 생성</strong></summary>
+<summary><strong>1. 간편한 AI 여행 계획 생성</strong></summary>
 <table style="text-align: center;" width="100%">
   <tr>
     <th style="text-align: center;" width="25%">회원가입/로그인</th>
