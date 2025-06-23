@@ -177,24 +177,37 @@ AI가 알아서 여행 일정을 짜주고, 귀여운 지역 카드도 모을 �
 
 [![stackticon](https://firebasestorage.googleapis.com/v0/b/stackticon-81399.appspot.com/o/images%2F1741835600997?alt=media&token=045c2016-6d64-4c1d-a7ed-04fd3c6fd605)](https://github.com/msdio/stackticon)
 
-### Backend
+<details>
+  <summary><strong>Backend</strong></summary>
+  <h3>🔹 Spring Boot</h3>
+  <ul>
+    <li>Spring Security를 활용한 인증/인가 구현</li>
+    <li>RESTful API 설계 및 구현</li>
+  </ul>
+  <h3>🔹 MySQL</h3>
+  <ul>
+    <li>사용자 정보, 여행 계획, 장소 정보 등 영구 데이터 저장</li>
+  </ul>
+  <h3>🔹 Redis</h3>
+  <ul>
+    <li>refresh Token 관리</li>
+  </ul>
+  <h3>🔹 MongoDB</h3>
+  <ul>
+    <li>인기 검색어 구현</li>
+  </ul>
+</details>
 
-- **Spring Boot**
-  - Spring Security를 활용한 인증/인가 구현
-  - RESTful API 설계 및 구현
-- **MySQL**
-  - 사용자 정보, 여행 계획, 장소 정보 등 영구 데이터 저장
-- **Redis**
-  - refresh Token 관리
-- **MongoDB**
-  - 인기 검색어 구현
+<details>
+  <summary><strong>Frontend</strong></summary>
+  <h3>🔹 Vue.js</h3>
+  <ul>
+    <li>반응형 사용자 인터페이스 구현</li>
+    <li>Vuex를 통한 상태 관리</li>
+    <li>Vue Router를 이용한 SPA 구현</li>
+  </ul>
+</details>
 
-### Frontend
-
-- **Vue.js**
-  - 반응형 사용자 인터페이스 구현
-  - Vuex를 통한 상태 관리
-  - Vue Router를 이용한 SPA 구현
 
 ## 📂 프로젝트 구조
 
