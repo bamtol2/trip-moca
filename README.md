@@ -53,9 +53,6 @@ AI가 알아서 여행 일정을 짜주고, 귀여운 지역 카드도 모을 �
 4️⃣ 여행지에 도착하면 지역 캐릭터 카드를 모아보세요<br />
 
 ## 👥 팀 소개
-
-## Team
-
 <table style="text-align: center;" width="100%">
   <tr>
     <th style="text-align: center;" width="16.66%"><img src="https://cofface.netlify.app/assets/415188185-f3be0d04-1132-46c5-affb-929d97fb0b58.png" width="150" height="150"/></th>
@@ -132,11 +129,7 @@ AI가 알아서 여행 일정을 짜주고, 귀여운 지역 카드도 모을 �
     <td style="text-align: center;" width="25%">전면 카메라로 정면/좌/우/상/하 얼굴을 가이드라인에 맞게 캡쳐하여 등록할 수 있습니다.</td>
     <td style="text-align: center;" width="25%">카드번호, 유효기간, CVC, 비밀번호 앞 2자리를 통해 카드 결제 정보를 등록할 수 있습니다.</td>
   </tr> 
-</table>
-
-</details>
-
-### 1. 간편한 AI 여행 계획 생성
+     ### 1. 간편한 AI 여행 계획 생성
 
 - **간단한 입력으로 일정 생성**
 
@@ -148,7 +141,11 @@ AI가 알아서 여행 일정을 짜주고, 귀여운 지역 카드도 모을 �
   - 생성된 일정 수정 가능
   - 방문할 장소 추가/삭제
   - 날짜별 일정 조정
+</table>
+</details>
 
+<details>
+<summary><strong>2. 지역 캐릭터 카드 수집</strong></summary>     
 ### 2. 지역 캐릭터 카드 수집
 
 - **방문 인증 카드 시스템**
@@ -161,17 +158,20 @@ AI가 알아서 여행 일정을 짜주고, 귀여운 지역 카드도 모을 �
   - 수집한 카드 목록 확인
   - 미수집 카드 확인
   - 카드 수집 현황 표시
+</details>
 
+<details>
+<summary><strong>3. 이동 경로 안내</strong></summary>     
 ### 3. 이동 경로 안내
 
 - **기본 경로 정보 제공**
   - 출발지-도착지 간 소요 시간 계산
   - 이동 거리 정보 제공
   - 경로 지도 표시
+</details>
+
 
 ## 🎥 [소개 영상](https://youtu.be/FSi6VjUQT_E)
-
-https://youtu.be/FSi6VjUQT_E
 
 ## ⚙️ 기술 스택
 
@@ -269,6 +269,31 @@ https://youtu.be/FSi6VjUQT_E
   </pre>
 </details>
 
+## 📜 산출물
+<details>
+  <summary><strong>📌 erd</strong></summary>
+  <img src="https://rocatrun.s3.ap-northeast-2.amazonaws.com/moca-readme/erd.png" alt="erd">
+</details>
+
+<details>
+  <summary><strong>📌 api 명세서</strong></summary>
+   <h3> 📱 API 문서</h3>
+   API 문서는 Swagger UI를 통해 확인할 수 있습니다: https://trip-moca.kro.kr:8081/swagger/swagger-ui/index.html
+  <h3>🔹 명소</h3>
+  <img src="https://rocatrun.s3.ap-northeast-2.amazonaws.com/moca-readme/api_attraction.png" alt="api명세서">
+  <h3>🔹 카드</h3>
+  <img src="https://rocatrun.s3.ap-northeast-2.amazonaws.com/moca-readme/api_card.png" alt="api명세서">
+  <h3>🔹 코스</h3>
+  <img src="https://rocatrun.s3.ap-northeast-2.amazonaws.com/moca-readme/api_course.png" alt="api명세서">
+  <h3>🔹 멤버</h3>
+  <img src="https://rocatrun.s3.ap-northeast-2.amazonaws.com/moca-readme/api_member.png" alt="api명세서">
+  <h3>🔹 계획</h3>
+  <img src="https://rocatrun.s3.ap-northeast-2.amazonaws.com/moca-readme/api_plan.png" alt="api명세서">
+  <h3>🔹 기타</h3>
+  <img src="https://rocatrun.s3.ap-northeast-2.amazonaws.com/moca-readme/api.png" alt="api명세서"> 
+</details>
+
+
 ## 💻 설치 및 실행 방법
 
 <details>
@@ -363,13 +388,7 @@ springdoc:
 
 </details>
 
-
-## 📱 API 문서
-
-API 문서는 Swagger UI를 통해 확인할 수 있습니다: https://trip-moca.kro.kr:8081/swagger/swagger-ui/index.html
-
-## 📜 산출물
-
+## 🎸 기타
 <details>
   <summary><strong>📌 브랜치 컨벤션</strong></summary>
 
@@ -484,25 +503,4 @@ MINOR: 사소한 변화
 ---
 
 ### ✔️ 커밋 메시지 형식 예시
-</details>
-
-<details>
-  <summary><strong>📌 erd</strong></summary>
-  <img src="https://rocatrun.s3.ap-northeast-2.amazonaws.com/moca-readme/erd.png" alt="erd">
-</details>
-
-<details>
-  <summary><strong>📌 api 명세서</strong></summary>
-  <h3>🔹 명소</h3>
-  <img src="https://rocatrun.s3.ap-northeast-2.amazonaws.com/moca-readme/api_attraction.png" alt="api명세서">
-  <h3>🔹 카드</h3>
-  <img src="https://rocatrun.s3.ap-northeast-2.amazonaws.com/moca-readme/api_card.png" alt="api명세서">
-  <h3>🔹 코스</h3>
-  <img src="https://rocatrun.s3.ap-northeast-2.amazonaws.com/moca-readme/api_course.png" alt="api명세서">
-  <h3>🔹 멤버</h3>
-  <img src="https://rocatrun.s3.ap-northeast-2.amazonaws.com/moca-readme/api_member.png" alt="api명세서">
-  <h3>🔹 계획</h3>
-  <img src="https://rocatrun.s3.ap-northeast-2.amazonaws.com/moca-readme/api_plan.png" alt="api명세서">
-  <h3>🔹 기타</h3>
-  <img src="https://rocatrun.s3.ap-northeast-2.amazonaws.com/moca-readme/api.png" alt="api명세서"> 
 </details>
